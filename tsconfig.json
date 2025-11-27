@@ -16,10 +16,19 @@
     "plugins": [
       {
         "name": "next"
+      },
+      {
+        "name": "@styled/typescript-styled-plugin"
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@components/*": [
+        "./src/app/components/*"
+      ],
+      "@utils/*": [
+        "./src/app/utils/*"
+      ],
     }
   },
   "include": [
