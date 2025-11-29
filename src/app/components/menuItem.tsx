@@ -2,15 +2,20 @@
 import Image from "next/image";
 import styled from "styled-components";
 import AllergenWarningIcon from "@utils/exclamation.png";
+import PlaceholderImage from "@utils/placeholder.png";
+// import ItemIcons from "./itemIcons";
+import HardcodedItemIcons from "./hardcodedItemIcons";
 
 const MenuItem = () => {
   return (
     <MenuItemContainer>
       <ItemDetails>
-        <div>
-          <h3>Dish Name</h3>
-          <HorizontalDivider />
-        </div>
+        <AboveDivider>
+          <h4>Dish Name</h4>
+          <HardcodedItemIcons />
+          {/* <ItemIcons spiceLevel="mild" vegan={true} vegetarian={false} glutenFree={false}  /> */}
+        </AboveDivider>
+        <HorizontalDivider />
         <BelowDivider>
           <ItemDescription>Item description. This is where the restaurant will describe the dish in as much or as little detail as they’d like in order to give the customer an idea of what it is they may order.</ItemDescription>
           <IngredientList>Ingredients List: components, spices, and anything that your customers may want to be aware is in the dish to help them make an informed choice.</IngredientList>
@@ -25,23 +30,45 @@ const MenuItem = () => {
           </AllergenWarningContainer>
         </BelowDivider>
       </ItemDetails>
+      <Image
+        className="position-relative"
+        src={PlaceholderImage}
+        alt=""
+        width={256}
+        height={256}
+      />
     </MenuItemContainer>
   )
 }
 
 const MenuItemContainer = styled.div`
-  width: 45rem;
+  display: flex;
+  width: 100%;
   height: 16rem;
-  border: 4px solid #000;
+  border: 2px solid #242424;
   border-radius: 20px;
   background-color: #f0fdff;
+  overflow: hidden;
+  box-shadow: 4px 4px 8px 0 #00000077;
 `;
 
 const ItemDetails = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  padding-top: 0.5rem;
   height: 100%;
+  border-right: 2px solid #242424;
+`;
+
+const AboveDivider = styled.div`
+  display: flex;
+  padding-bottom: .25rem;
+  align-items: center;
+
+  & h4 {
+    margin: 0;
+  }
 `;
 
 const HorizontalDivider = styled.hr`
@@ -77,6 +104,7 @@ const AllergenWarning = styled.p`
   font-size: .75rem;
   margin: 0;
   color: #ff0000;
+  /* line-height: 2rem; */
 `;
 
 export default MenuItem;

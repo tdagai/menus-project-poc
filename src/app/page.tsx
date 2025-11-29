@@ -4,11 +4,25 @@ import MenuItem from "./components/menuItem";
 
 const Home = () => {
   return (
-    <div className="p-3">
+    <ItemsGrid className="p-3">
       <MenuItem />
-    </div>
+      <MenuItem />
+      <MenuItem />
+      <MenuItem />
+      <MenuItem />
+      <MenuItem />
+      <MenuItem />
+      <MenuItem />
+    </ItemsGrid>
   );
 }
+
+const ItemsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(800px, 100%), 1fr));
+  gap: 1rem;
+  justify-items: center;
+`;
 
 
 
